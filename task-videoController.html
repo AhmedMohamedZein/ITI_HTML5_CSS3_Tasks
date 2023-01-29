@@ -29,6 +29,7 @@
             <button onclick="videoBackJump()"> < </button>
             <button onclick="videoJump()"> > </button> 
             <button onclick="videoLongJump()"> >> </button>
+            <button onclick="reqFullScrean()">&#x26F6</button>
             
             <br /> 
             Speed : <input  onclick="videoSpeed()" type="range" id="speed" min="0.25" max="15" step="0.25" />
@@ -72,6 +73,16 @@
         function volumeChanger() {
             console.log (document.getElementById("volume").value);
             video.volume = document.getElementById("volume").value ;
+        }
+        function reqFullScrean () {
+            
+            if (!document.fullscreenElement) {
+                video.requestFullscreen().catch((err) => {
+                    alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+            });
+            } else {
+                document.exitFullscreen();
+            }
         }
     </script>
 </html>
