@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+
+<html lang="eng">
+
+    <head>
+        <title>Animation</title>
+    </head>
+    <body>
+        <canvas id="con" width="600" height="600" style="stroke: black; border: 2px solid black;">
+
+        </canvas>
+    </body>
+    <script>
+        let dynamic = 0;
+        let x = 0;
+        let y = 0;
+
+        function animateLine () {
+            let con = document.getElementById("con");
+            let ctx = con.getContext("2d");
+            x = 4 * dynamic;
+            y = 4 * dynamic;
+            ctx.clearRect(0,0,600,600);
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo(x,y);
+            if (x === y && x > 600) {
+                clearInterval(myInterval);
+                alert ("Animation end") ;
+            }
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 5;
+            ctx.stroke();
+            ctx.closePath();
+            dynamic++;
+        }
+        var myInterval = setInterval(animateLine);
+
+    </script>
+</html>
