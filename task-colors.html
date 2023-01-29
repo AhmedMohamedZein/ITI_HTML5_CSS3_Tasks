@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="eng">
+
+
+    <head>
+        <title>Color Range</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <style>
+            ul {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 40px;
+            }
+            article {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 50px;
+                padding-left: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="rangeSection">
+            <ul style="list-style-type: none;">
+                <li style="color: red;"> Red :  <input onclick="changeTextColor()" id="red" type="range" min="0" max="255" step="1" value="5" /> </li> <br />
+                <li style="color: green;"> Green :  <input onclick="changeTextColor()" id="green" type="range" min="0" max="255" step="1" value="5" /> </li> <br />
+                <li style="color: blue ;"> Blue :  <input onclick="changeTextColor()" id="blue" type="range" min="0" max="255" step="1" value="5" /> </li> <br />
+            </ul>
+        </section>
+        <article id="text">
+            Change the 3 Color Ranges above <br/>
+            and observe my color Change   
+        </article>
+    </body>
+    <script>
+
+        function changeTextColor () {
+
+            const red = document.getElementById("red").value;
+            const green = document.getElementById("green").value;
+            const blue = document.getElementById("blue").value;
+            document.getElementById("text").style.color = `rgb(${red} , ${green} ,${blue} )`;
+        }
+
+    </script>
+
+
+</html>

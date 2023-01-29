@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Web Forms Validation : HTML</title>
+        <style>
+            ul {
+                font-style: italic;
+                font-size: large;
+            }
+            input {
+                border-radius: 5px;
+                font-size: 15px;    
+                width: 30vh;
+                height: 3vh;  
+            }
+            input[type="email"]:valid {
+                border: 2px solid green;
+                background-color: rgb(207, 255, 136);
+            }
+            input[type="email"]:invalid {
+                border: 2px solid  red;         
+                background-color: rgb(255, 143, 143);   
+            }
+            input [type="email"]:focus{
+                border: 2px solid rgb(9, 3, 94); 
+                outline: none; 
+            }
+            input[type="text"]:valid {
+                border: 2px solid green;
+                background-color: rgb(207, 255, 136);
+            }
+            input[type="text"]:invalid {
+                border: 2px solid  red;
+                background-color: rgb(255, 143, 143); 
+            }
+            input[type="text"]:focus{
+                border: 2px solid rgb(9, 3, 94); 
+                outline: none; 
+            }
+            main {
+                border: 2px solid black;
+                padding-left: 10px;
+                padding-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <main>
+            <h1> Change Email Address </h1>
+            <form action="https://github.com/AhmedMohamedZein">
+                
+                <input type="text" placeholder="Username" required/>
+                
+                <br /> <br />
+                
+                <input type="email" placeholder="Email" required/>  
+                 
+                <br /> <br />
+                    
+                <button>Change</button>
+            </form>    
+        </main>
+
+    </body>
+
+
+</html>

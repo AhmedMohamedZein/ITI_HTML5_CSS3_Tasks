@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html len="eng">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title> Video Controller </title>
+        <style>
+            button {
+                width: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <video id="vid" src="./Day1/Demo_Part1/video/frozen.mp4" width="900vh"></video> <br/><br/>
+        
+        <div id="controlls">
+            <input type="range" id="progress" onchange="progressEvent()" min="0" max="100" value="0" />
+            <label id="timer" role="timer"></label><br /> 
+            
+            <button onclick="playVideo()">Play</button> 
+            <button onclick="stopVideo()">Stop</button> 
+            <button onclick="videoMute()">Mute</button> <br /> <br />
+            <button onclick="videoLongBackJump()"> << </button>
+            <button onclick="videoBackJump()"> < </button>
+            <button onclick="videoJump()"> > </button> 
+            <button onclick="videoLongJump()"> >> </button>
+            
+            <br /> 
+            Speed : <input  onclick="videoSpeed()" type="range" id="speed" min="0.25" max="15" step="0.25" />
+        </div>
+        
+    </body>
+
+    <script>
+        let video = document.getElementById("vid") ;
+        let progress = document.getElementById("progress");
+        video.addEventListener("timeupdate",   function () { progress.value = video.currentTime ; 
+        timer.innerHTML = Math.round(video.currentTime/60) + ":" + Math.round(video.currentTime) +"/"+ '3';
+        });
+        function playVideo () {
+            video.play();
+        }
+        function stopVideo () {
+            video.pause();
+        }
+        function videoSpeed () {
+            video.playbackRate = document.getElementById("speed").value;
+        }
+        function progressEvent () {
+            video.currentTime = progress.value;
+        }
+        function videoMute (){
+            video.muted = !video.muted;
+        }
+        function videoJump () {
+            video.currentTime = video.currentTime + 5 ;
+        }
+        function videoLongJump() {
+            video.currentTime = video.currentTime + 15 ;
+        }
+        function videoBackJump() {
+            video.currentTime = video.currentTime - 5 ;
+        }
+        function videoLongBackJump() {
+            video.currentTime = video.currentTime - 15 ;
+        }
+    </script>
+</html>
+
